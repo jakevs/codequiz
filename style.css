@@ -1,5 +1,28 @@
 body {
     font-family: fantasy;
     background-color: aquamarine;
-    align-content: center;
+    color: rgb(34, 25, 25);
+}
+
+.container {
+    width: 400px;
+    max-width: 80%;
+    background-color: ghostwhite;
+    padding: 5px;
+    text-align: center;
+    display: inline-block;
+    border-style: solid;
+    border-color: rgb(34, 25, 25, .5);
+    border-radius: 5px;
+}
+
+#question {
+}
+
+.btn {
+    background-color: lemonchiffon;
+    border-radius: 5px;
+    font-family: g;
+    font-weight: 400;
+
 }
