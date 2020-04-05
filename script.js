@@ -99,3 +99,16 @@ var questions = [
 //Creating variables
 var lastQuestion = questions.length - 1;
 var runningQuestion = 0;
+
+//Functions
+function renderQuestion(){
+    let q = questions[runningQuestion];
+    question.innerHTML = "<p>"+ q.question +"</p>";
+    firstAnswer.innerHTML = q.choiceA;
+    secondAnswer.innerHTML = q.choiceB;
+    thirdAnswer.innerHTML = q.choiceC;
+}
+runningQuestion = 0;
+renderQuestion();
+runningQuestion++
+renderQuestion();
