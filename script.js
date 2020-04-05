@@ -47,3 +47,15 @@ var interval = setInterval(function() {
     }
 }, 1000);
 });
+
+$( "#first").on("click", function() {
+    alert("Wrong!");
+});
+
+$( "#second").on("click", function() {
+    alert("Wrong!");
+});
+
+$( "#third").on("click", function() {
+    alert("Correct!");
+});
