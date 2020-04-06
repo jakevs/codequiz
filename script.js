@@ -125,7 +125,7 @@ function renderQuestion(){
     question.innerHTML = "<p>"+ q.question +"</p>";
     firstAnswer.innerHTML = q.firstAnswer;
     secondAnswer.innerHTML = q.secondAnswer;
-    thirdAnswer.innerHTML = q.third;
+    thirdAnswer.innerHTML = q.thirdAnswer;
     // for (var i = 0, l = questions.length; i < l; i++) {
     //     var obj = questions[i];
     // }
