@@ -37,29 +37,30 @@ var questions = document.getElementById('question');
 var firstAnswer = document.getElementById('first');
 var secondAnswer = document.getElementById('second');
 var thirdAnswer = document.getElementById('third');
+var scores = document.getElementById('scores');
 var score = 0
 
 //Creating questions array
 var questions = [
     {
         question : "What is the markup language for the internet?",
-        choiceA : "HTML",
-        choiceB : "CSS",
-        choiceC : "Java",
+        answerA : "HTML",
+        answerB : "CSS",
+        answerC : "Java",
         correct : "A"
     },
     {
         question : "What dynamically changes a webpage?",
-        choiceA : "CSS",
-        choiceB : "Javascript",
-        choiceC : "HTML",
+        answerA : "CSS",
+        answerB : "Javascript",
+        answerC : "HTML",
         correct : "B"
     },
     {
         question : "What is a library for Javascript?",
-        choiceA : "Linux",
-        choiceB : "Bootstrap",
-        choiceC : "JQuery",
+        answerA : "Linux",
+        answerB : "Bootstrap",
+        answerC : "JQuery",
         correct : "C"
     }
 ];
@@ -79,12 +80,9 @@ function renderQuestion(){
     //     return;
     // }
     question.innerHTML = "<p>"+ q.question +"</p>";
-    firstAnswer.innerHTML = q.choiceA;
-    secondAnswer.innerHTML = q.choiceB;
-    thirdAnswer.innerHTML = q.choiceC;
-    // for (var i = 0, l = questions.length; i < l; i++) {
-    //     var obj = questions[i];
-    // }
+    firstAnswer.innerHTML = q.answerA;
+    secondAnswer.innerHTML = q.answerB;
+    thirdAnswer.innerHTML = q.answerC;
 };
 
 function checkAnswer(answer) {
@@ -102,6 +100,13 @@ function checkAnswer(answer) {
         return;
     }
 };
+
+function getScore() {
+    scores.style.display = "block";
+    scores.innerHTML = score
+    localStorage.setItem('scores')
+    console.log('getScore')
+}
 
 // for (var i = 0, l = questions.length; i < l; i++) {
 //     var obj = questions[i];
