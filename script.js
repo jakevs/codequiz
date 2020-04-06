@@ -98,16 +98,6 @@ var questions = [
     }
 ];
 
-// firstAnswer.addEventListener("click", function(event) {
-//     event.preventDefault();
-    
-// });
-
-// for (i=0; i < questions.length; i++) {
-//     console.log(questions);
-//     document.writeIn(questions[i].question);
-// }
-
 //Creating variables
 var lastQuestion = questions.length - 1;
 var runningQuestion = 0;
@@ -123,9 +113,9 @@ function renderQuestion(){
     //     return;
     // }
     question.innerHTML = "<p>"+ q.question +"</p>";
-    firstAnswer.innerHTML = q.firstAnswer;
-    secondAnswer.innerHTML = q.secondAnswer;
-    thirdAnswer.innerHTML = q.thirdAnswer;
+    firstAnswer.innerHTML = q.choiceA;
+    secondAnswer.innerHTML = q.choiceB;
+    thirdAnswer.innerHTML = q.choiceC;
     // for (var i = 0, l = questions.length; i < l; i++) {
     //     var obj = questions[i];
     // }
@@ -171,3 +161,12 @@ function checkAnswer(answer) {
 //     } else {
 //         displayQuestion(questions)
 //     };
+// firstAnswer.addEventListener("click", function(event) {
+//     event.preventDefault();
+    
+// });
+
+// for (i=0; i < questions.length; i++) {
+//     console.log(questions);
+//     document.writeIn(questions[i].question);
+// }
