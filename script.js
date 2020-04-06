@@ -2,44 +2,10 @@
 When begin button is clicked, countdown starts and start answering questions
 Create variables - begin button - 
 Create variable for questions - var question = Array
-- var questions = [
-	{
-		questions: "What is the markup language of the internet?",
-		answers: {
-			a: 'Java',
-			b: 'HTML',
-			c: 'CSS'
-		},
-		correctAnswer: 'b'
-	},
-	{
-		question: "What do you use to style a webpage?",
-		answers: {
-			a: 'HTML',
-			b: 'Javascript',
-			c: 'CSS'
-		},
-		correctAnswer: 'c'
-	}
-];
-
-// $( "#first").on("click", function() {
-//     alert("Wrong!");
-// });
-
-// $( "#second").on("click", function() {
-//     alert("Wrong!");
-// });
-
-// $( "#third").on("click", function() {
-//     alert("Correct!");
-// });
-
 Function to start the quiz - getElementById - addEventListener
 Function to go to next question
 Function to do something when button selected - timer starts
 - var playButton = document.querySelector("#play");
-
 - beginBtn.addEventListener("click", startTimer);
 Get timer to stop when questions are done being answered
 Keep score - score is equal to time left
@@ -133,6 +99,7 @@ function checkAnswer(answer) {
         renderQuestion();
     } else {
         clearInterval();
+        return;
     }
 };
 

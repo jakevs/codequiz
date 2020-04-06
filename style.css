@@ -4,20 +4,21 @@
 
 body {
     font-family: fantasy;
-    background-color: aquamarine;
+    background-color: rgb(97, 206, 170);
     color: rgb(34, 25, 25);
     padding: 0;
     margin: 0;
     display: flex;
     justify-content: center;
-    width: 100vw;
-    height: 100vw;
+    width: 100vw; 
+    height: 100vw;  
     align-items: center;
 }
 
 .container {
-    width: 800px;
-    max-width: 80%;
+    width: 1000px;
+    max-width: 75%;
+    height: 400px;
     background-color: ghostwhite;
     padding: 5px;
     align-content: center;
@@ -26,6 +27,10 @@ body {
     border-style: solid;
     border-color: rgb(34, 25, 25, .5);
     border-radius: 5px;
+}
+
+#timer {
+    padding: 5px;
 }
 
 .btn-grid {
@@ -41,4 +46,7 @@ body {
     font-weight: 700;
     padding: 5px;
     margin: 5px;
+}
+#scores {
+    padding: 5px;
 }
