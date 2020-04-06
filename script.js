@@ -109,34 +109,42 @@ var questions = [
 // }
 
 //Creating variables
-// var lastQuestion = questions.length - 1;
-// var runningQuestion = 0;
+var lastQuestion = questions.length - 1;
+var runningQuestion = 0;
+var count = 0;
 
-//Functions
-// function renderQuestion(){
-//     if(runningQuestion < lastQuestion) {
-//     runningQuestion++;
-//     renderQuestion();
-//     } else {
-//         return;
-//     }
-//     let q = questions[runningQuestion];
-//     question.innerHTML = "<p>"+ q.question +"</p>";
-//     firstAnswer.innerHTML = q.choiceA;
-//     secondAnswer.innerHTML = q.choiceB;
-//     thirdAnswer.innerHTML = q.choiceC;
-//     for (var i = 0, l = questions.length; i < l; i++) {
-//         var obj = questions[i];
-//     }
-// }
+// Functions
+function renderQuestion(){
+    var q = questions[runningQuestion];
+    // if(runningQuestion < lastQuestion) {
+    // runningQuestion++;
+    // renderQuestion();
+    // } else {
+    //     return;
+    // }
+    question.innerHTML = "<p>"+ q.question +"</p>";
+    firstAnswer.innerHTML = q.firstAnswer;
+    secondAnswer.innerHTML = q.secondAnswer;
+    thirdAnswer.innerHTML = q.third;
+    // for (var i = 0, l = questions.length; i < l; i++) {
+    //     var obj = questions[i];
+    // }
+};
 
-// function checkAnswer(answer) {
-//     if(answer === questions[runningQuestion].correct) {
-//         alert('Correct!');
-//     } else{
-//         alert('Wrong!');
-//     }
-// }
+function checkAnswer(answer) {
+    if(answer === questions[runningQuestion].correct) {
+        score++;
+    } else{
+        alert('Wrong!');
+    }
+    count = 0;
+    if (runningQuestion < lastQuestion) {
+        runningQuestion++;
+        renderQuestion();
+    } else {
+        clearInterval();
+    }
+};
 
 // for (var i = 0, l = questions.length; i < l; i++) {
 //     var obj = questions[i];
