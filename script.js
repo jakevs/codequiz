@@ -48,7 +48,7 @@ List of highscores - save to localStorage.getItem('');
 
 
 //Timer - starts on begin button
-$( "#begin-btn").on("click", function() {
+$("#begin-btn").on("click", function() {
     addEventListener.counter;
 
 var counter = 60;
@@ -63,6 +63,7 @@ var interval = setInterval(function() {
       console.log("Timer --> " + counter);
     }
 }, 1000);
+
 });
 
 //Selecting elements
@@ -70,6 +71,7 @@ var questions = document.getElementById('question');
 var firstAnswer = document.getElementById('first');
 var secondAnswer = document.getElementById('second');
 var thirdAnswer = document.getElementById('third');
+var score = 0
 
 //Creating questions array
 var questions = [
@@ -96,19 +98,68 @@ var questions = [
     }
 ];
 
+// firstAnswer.addEventListener("click", function(event) {
+//     event.preventDefault();
+    
+// });
+
+// for (i=0; i < questions.length; i++) {
+//     console.log(questions);
+//     document.writeIn(questions[i].question);
+// }
+
 //Creating variables
-var lastQuestion = questions.length - 1;
-var runningQuestion = 0;
+// var lastQuestion = questions.length - 1;
+// var runningQuestion = 0;
 
 //Functions
-function renderQuestion(){
-    let q = questions[runningQuestion];
-    question.innerHTML = "<p>"+ q.question +"</p>";
-    firstAnswer.innerHTML = q.choiceA;
-    secondAnswer.innerHTML = q.choiceB;
-    thirdAnswer.innerHTML = q.choiceC;
-}
-runningQuestion = 0;
-renderQuestion();
-runningQuestion++
-renderQuestion();
+// function renderQuestion(){
+//     if(runningQuestion < lastQuestion) {
+//     runningQuestion++;
+//     renderQuestion();
+//     } else {
+//         return;
+//     }
+//     let q = questions[runningQuestion];
+//     question.innerHTML = "<p>"+ q.question +"</p>";
+//     firstAnswer.innerHTML = q.choiceA;
+//     secondAnswer.innerHTML = q.choiceB;
+//     thirdAnswer.innerHTML = q.choiceC;
+//     for (var i = 0, l = questions.length; i < l; i++) {
+//         var obj = questions[i];
+//     }
+// }
+
+// function checkAnswer(answer) {
+//     if(answer === questions[runningQuestion].correct) {
+//         alert('Correct!');
+//     } else{
+//         alert('Wrong!');
+//     }
+// }
+
+// for (var i = 0, l = questions.length; i < l; i++) {
+//     var obj = questions[i];
+// }
+
+// runningQuestion = 0;
+// renderQuestion();
+// runningQuestion++
+// renderQuestion();
+
+// function selectAnswer(event) {
+//     // Verify one that is clicked gets the true statement within the array
+//     var text_received = event.target.innerText;
+//     //Go through the questions array at the current index - this is the current question
+//     questions[current_index].answers.forEach(answer => {
+//         if (answer.text === text_received && answer.correct) {
+//             console.log("Nailed it")
+//         }
+//     })
+//     answerButtonsElement.innerHTML = ""
+//     current_index += 1
+//     if (current_index > questions.length) {
+//         /// The game is over. Crush their dreams
+//     } else {
+//         displayQuestion(questions)
+//     };
