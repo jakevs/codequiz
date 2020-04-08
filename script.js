@@ -12,33 +12,15 @@ Keep score - score is equal to time left
 List of highscores - save to localStorage.getItem('');
 */
 
-
-//Timer - starts on begin button
-$("#begin-btn").on("click", function() {
-    addEventListener.counter;
-
-var counter = 60;
-var interval = setInterval(function() {
-    counter--;
-    if (counter <= 0) {
-     		clearInterval(interval);
-      	$('#timer').html("<h3>Game Over!</h3>");  
-        return;
-    }else{
-    	$('#time').text("Timer: " + counter);
-      console.log("Timer --> " + counter);
-    }
-}, 1000);
-
-});
-
-//Selecting elements
 var questions = document.getElementById('question');
 var firstAnswer = document.getElementById('first');
 var secondAnswer = document.getElementById('second');
 var thirdAnswer = document.getElementById('third');
 var scores = document.getElementById('scores');
-var score = 0
+var questionHolder = document.getElementById('question-holder');
+var counterEnd = 0;
+var score = 0;
+var currentQ = 0;
 
 //Creating questions array
 var questions = [
@@ -70,24 +52,42 @@ var lastQuestion = questions.length - 1;
 var runningQuestion = 0;
 var count = 0;
 
+//Timer - starts on begin button
+$("#begin-btn").on("click", function() {
+   addEventListener.counter;
+   $('#question-holder').removeClass('visibility');
+
+var counter = 60;
+var interval = setInterval(function() {
+    counter--;
+    if (counter <= 0 || questions[runningQuestion] == questions.length) {
+     		clearInterval(interval);
+      	$('#timer').html("<h3>Game Over!</h3>");  
+        return;
+    }else{
+    	$('#time').text("Timer: " + counter);
+    //   console.log("Timer --> " + counter);
+    }
+}, 1000);
+
+});
+
 // Functions
 function renderQuestion(){
     var q = questions[runningQuestion];
-    // if(runningQuestion < lastQuestion) {
-    // runningQuestion++;
-    // renderQuestion();
-    // } else {
-    //     return;
-    // }
+    currentQ++;
     question.innerHTML = "<p>"+ q.question +"</p>";
     firstAnswer.innerHTML = q.answerA;
     secondAnswer.innerHTML = q.answerB;
     thirdAnswer.innerHTML = q.answerC;
+console.log(currentQ);
+
 };
 
 function checkAnswer(answer) {
     if(answer === questions[runningQuestion].correct) {
         score++;
+        console.log(score);
     } else{
         alert('Wrong!');
     }
@@ -96,17 +96,20 @@ function checkAnswer(answer) {
         runningQuestion++;
         renderQuestion();
     } else {
-        clearInterval();
-        return;
-    }
+       return;
+}
 };
 
-function getScore() {
-    scores.style.display = "block";
-    scores.innerHTML = score
-    localStorage.setItem('scores')
-    console.log('getScore')
-}
+
+// Functions
+
+
+// function getScore() {
+//     scores.style.display = "block";
+//     scores.innerHTML = score
+//     localStorage.setItem('scores')
+//     console.log('getScore')
+// }
 
 // for (var i = 0, l = questions.length; i < l; i++) {
 //     var obj = questions[i];
