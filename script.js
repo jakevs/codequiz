@@ -21,6 +21,7 @@ var questionHolder = document.getElementById('question-holder');
 var counterEnd = 0;
 var score = 0;
 var currentQ = 0;
+var counter = 60;
 
 //Creating questions array
 var questions = [
@@ -57,21 +58,31 @@ $("#begin-btn").on("click", function() {
    addEventListener.counter;
    $('#question-holder').removeClass('visibility');
 
-var counter = 60;
+
 var interval = setInterval(function() {
     counter--;
-    if (counter <= 0 || questions[runningQuestion] == questions.length) {
-     		clearInterval(interval);
-      	$('#timer').html("<h3>Game Over!</h3>");  
-        return;
-    }else{
-    	$('#time').text("Timer: " + counter);
-    //   console.log("Timer --> " + counter);
+    if (counter == 0) {
+        gameOver();
     }
+    $('#time').text("Timer: " + counter);
+
+    // if (questions[runningQuestion + 1] == questions.length) {             
+    //       $('#timer').html("<h3>Game Over!</h3>"); 
+    //       clearInterval(interval); 
+    //     // return;
+    // }else{
+    // 	$('#time').text("Timer: " + counter);
+    // //   console.log("Timer --> " + counter);
+    // }
 }, 1000);
+
 
 });
 
+function gameOver() {
+    $('#timer').html("<h3>Game Over!</h3>"); 
+    clearInterval(interval); 
+}
 // Functions
 function renderQuestion(){
     var q = questions[runningQuestion];
@@ -85,9 +96,12 @@ console.log(currentQ);
 };
 
 function checkAnswer(answer) {
+    
     if(answer === questions[runningQuestion].correct) {
         score++;
         console.log(score);
+
+        // document.text(scores);
     } else{
         alert('Wrong!');
     }
@@ -95,12 +109,16 @@ function checkAnswer(answer) {
     if (runningQuestion < lastQuestion) {
         runningQuestion++;
         renderQuestion();
+        // clearInterval();
     } else {
        return;
-}
+} 
 };
 
-
+if (questions[runningQuestion + 1] == questions.length) {             
+    gameOver();
+  // return;
+}
 // Functions
 
 
