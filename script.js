@@ -52,10 +52,11 @@ var questions = [
 var lastQuestion = questions.length - 1;
 var runningQuestion = 0;
 var count = 0;
+var compareCount = 0;
 
 //Timer - starts on begin button
 $("#begin-btn").on("click", function() {
-   addEventListener.counter;
+//    addEventListener.counter;
    $('#question-holder').removeClass('visibility');
 
 
@@ -81,7 +82,7 @@ var interval = setInterval(function() {
 
 function gameOver() {
     $('#timer').html("<h3>Game Over!</h3>"); 
-    clearInterval(interval); 
+    // clearInterval(interval); 
 }
 // Functions
 function renderQuestion(){
@@ -91,15 +92,15 @@ function renderQuestion(){
     firstAnswer.innerHTML = q.answerA;
     secondAnswer.innerHTML = q.answerB;
     thirdAnswer.innerHTML = q.answerC;
-console.log(currentQ);
+// console.log(currentQ);
 
 };
 
 function checkAnswer(answer) {
-    
+    compareCount++
     if(answer === questions[runningQuestion].correct) {
         score++;
-        console.log(score);
+        // console.log(score);
 
         // document.text(scores);
     } else{
@@ -110,15 +111,16 @@ function checkAnswer(answer) {
         runningQuestion++;
         renderQuestion();
         // clearInterval();
-    } else {
-       return;
-} 
+    } 
+    if (compareCount == questions.length) {
+        gameOver();
+    } 
 };
 
-if (questions[runningQuestion + 1] == questions.length) {             
-    gameOver();
-  // return;
-}
+// if (questions[runningQuestion + 1] == questions.length) {             
+//     gameOver();
+//   // return;
+// }
 // Functions
 
 
