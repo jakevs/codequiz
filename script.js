@@ -26,25 +26,25 @@ var counter = 60;
 //Creating questions array
 var questions = [
     {
-        question : "What is the markup language for the internet?",
-        answerA : "HTML",
-        answerB : "CSS",
-        answerC : "Java",
-        correct : "A"
+        question: "What is the markup language for the internet?",
+        answerA: "HTML",
+        answerB: "CSS",
+        answerC: "Java",
+        correct: "A"
     },
     {
-        question : "What dynamically changes a webpage?",
-        answerA : "CSS",
-        answerB : "Javascript",
-        answerC : "HTML",
-        correct : "B"
+        question: "What dynamically changes a webpage?",
+        answerA: "CSS",
+        answerB: "Javascript",
+        answerC: "HTML",
+        correct: "B"
     },
     {
-        question : "What is a library for Javascript?",
-        answerA : "Linux",
-        answerB : "Bootstrap",
-        answerC : "JQuery",
-        correct : "C"
+        question: "What is a library for Javascript?",
+        answerA: "Linux",
+        answerB: "Bootstrap",
+        answerC: "JQuery",
+        correct: "C"
     }
 ];
 
@@ -55,55 +55,55 @@ var count = 0;
 var compareCount = 0;
 
 //Timer - starts on begin button
-$("#begin-btn").on("click", function() {
-//    addEventListener.counter;
-   $('#question-holder').removeClass('visibility');
+$("#begin-btn").on("click", function () {
+    //    addEventListener.counter;
+    $('#question-holder').removeClass('visibility');
 
 
-var interval = setInterval(function() {
-    counter--;
-    if (counter == 0) {
-        gameOver();
-    }
-    $('#time').text("Timer: " + counter);
+    var interval = setInterval(function () {
+        counter--;
+        if (counter == 0) {
+            gameOver();
+        }
+        $('#time').text("Timer: " + counter);
 
-    // if (questions[runningQuestion + 1] == questions.length) {             
-    //       $('#timer').html("<h3>Game Over!</h3>"); 
-    //       clearInterval(interval); 
-    //     // return;
-    // }else{
-    // 	$('#time').text("Timer: " + counter);
-    // //   console.log("Timer --> " + counter);
-    // }
-}, 1000);
+        // if (questions[runningQuestion + 1] == questions.length) {             
+        //       $('#timer').html("<h3>Game Over!</h3>"); 
+        //       clearInterval(interval); 
+        //     // return;
+        // }else{
+        // 	$('#time').text("Timer: " + counter);
+        // //   console.log("Timer --> " + counter);
+        // }
+    }, 1000);
 
 
 });
 
 function gameOver() {
-    $('#timer').html("<h3>Game Over!</h3>"); 
+    $('#timer').html("<h3>Game Over!</h3>");
     // clearInterval(interval); 
 }
 // Functions
-function renderQuestion(){
+function renderQuestion() {
     var q = questions[runningQuestion];
     currentQ++;
-    question.innerHTML = "<p>"+ q.question +"</p>";
+    question.innerHTML = "<p>" + q.question + "</p>";
     firstAnswer.innerHTML = q.answerA;
     secondAnswer.innerHTML = q.answerB;
     thirdAnswer.innerHTML = q.answerC;
-// console.log(currentQ);
+    // console.log(currentQ);
 
 };
 
 function checkAnswer(answer) {
     compareCount++
-    if(answer === questions[runningQuestion].correct) {
+    if (answer === questions[runningQuestion].correct) {
         score++;
         // console.log(score);
 
         // document.text(scores);
-    } else{
+    } else {
         alert('Wrong!');
     }
     count = 0;
@@ -111,10 +111,10 @@ function checkAnswer(answer) {
         runningQuestion++;
         renderQuestion();
         // clearInterval();
-    } 
+    }
     if (compareCount == questions.length) {
         gameOver();
-    } 
+    }
 };
 
 // if (questions[runningQuestion + 1] == questions.length) {             
@@ -158,7 +158,7 @@ function checkAnswer(answer) {
 //     };
 // firstAnswer.addEventListener("click", function(event) {
 //     event.preventDefault();
-    
+
 // });
 
 // for (i=0; i < questions.length; i++) {
