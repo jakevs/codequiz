@@ -1,4 +1,5 @@
 /* 
+Pseudo Code
 When begin button is clicked, countdown starts and start answering questions
 Create variables - begin button - 
 Create variable for questions - var question = Array
@@ -12,6 +13,7 @@ Keep score - score is equal to time left
 List of highscores - save to localStorage.getItem('');
 */
 
+//Declaring Variables, pulling from Id's
 var questions = document.getElementById('question');
 var firstAnswer = document.getElementById('first');
 var secondAnswer = document.getElementById('second');
@@ -67,14 +69,6 @@ $("#begin-btn").on("click", function () {
         }
         $('#time').text("Timer: " + counter);
 
-        // if (questions[runningQuestion + 1] == questions.length) {             
-        //       $('#timer').html("<h3>Game Over!</h3>"); 
-        //       clearInterval(interval); 
-        //     // return;
-        // }else{
-        // 	$('#time').text("Timer: " + counter);
-        // //   console.log("Timer --> " + counter);
-        // }
     }, 1000);
 
 
