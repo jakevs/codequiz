@@ -74,8 +74,11 @@ $("#begin-btn").on("click", function () {
 
 });
 
-function gameOver() {
+function gameOver(score) {
+    var initials = prompt("Enter your initials!", "");
+    localStorage.setItem(initials, score);
     $('#timer').html("<h3>Game Over!</h3>");
+    $('#scores').html(`<h3>High Scores: ${initials} the score is ${score}</h3>`);
     // clearInterval(interval); 
 }
 // Functions
@@ -107,7 +110,7 @@ function checkAnswer(answer) {
         // clearInterval();
     }
     if (compareCount == questions.length) {
-        gameOver();
+        gameOver(score);
     }
 };
 
