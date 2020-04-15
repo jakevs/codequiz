@@ -75,7 +75,7 @@ function gameOver() {
   clearInterval(interval);
   var initials = prompt("Enter your initials!", "");
   localStorage.setItem(initials, counter);
-  //   $("#timer").html("<h3>Game Over!</h3>");
+  $("#timer").html("<h3>Game Over!</h3>");
   $("#question-holder").addClass("visibility");
   $("#scores").html(
     `<h3>High Scores: ${initials} the score is ${counter}</h3>`
